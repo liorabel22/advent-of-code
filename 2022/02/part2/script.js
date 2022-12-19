@@ -42,10 +42,13 @@ function finalResult(input) {
 }
 
 function gameResult(game) {
-  const opponent = game[0].charCodeAt(0) - "A".charCodeAt(0) + 1;
-  const mine = game[1].charCodeAt(0) - "X".charCodeAt(0) + 1;
+  const opponent = game[0].charCodeAt(0) - "A".charCodeAt(0);
+  const result = (game[1].charCodeAt(0) - "X".charCodeAt(0)) * 3;
+  // actionRelativeToResult = -1 if needs to lose (result = X = 0)
+  // actionRelativeToResult = 0 if needs to draw (result = Y = 3)
+  // actionRelativeToResult = 1 if needs to win (result = Z = 6)
+  const actionRelativeToResult = result / 3 - 1;
+  const mine = ((opponent + actionRelativeToResult + 3) % 3) + 1;
 
-  const winLose = (opponent - mine + 3) % 3;
-
-  return (winLose ? (winLose === 1 ? 0 : winLose) : 1) * 3 + mine;
+  return result + mine;
 }
