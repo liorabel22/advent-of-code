@@ -10,7 +10,6 @@ fileSelector.addEventListener("change", () => {
   }
 
   const file = files[0];
-  console.log(file);
 
   const reader = new FileReader();
 
@@ -19,9 +18,12 @@ fileSelector.addEventListener("change", () => {
     fullTextDisplayArea.value = file;
 
     /* Your Functions Here */
+    answer.textContent = finalResult(file);
   };
 
   reader.onerror = (e) => alert(e.target.error.name);
 
   reader.readAsText(file);
 });
+
+function finalResult(input = "") {}

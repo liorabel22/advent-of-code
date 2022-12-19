@@ -1,0 +1,21 @@
+.full-text-get-and-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.full-text-display-area {
+  margin-top: 15px;
+  width: 50%;
+}
+
+.final-result {
+  display: flex;
+  flex-direction: row;
+  margin-top: 50px;
+}
+
+.answer {
+  font-weight: 900;
+  margin-left: 20px;
+}
